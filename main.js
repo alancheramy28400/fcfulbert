@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
         container.appendChild(art);
       });
+      // inject JSON-LD for events for SEO
+      try { injectEventsJsonLd(events); } catch (e) { console.warn('JSON-LD injection failed', e); }
     } catch (e) {
       container.innerHTML = '<p class="muted">Impossible de charger les actualités pour le moment.</p>';
     }
@@ -187,4 +189,34 @@ document.addEventListener('DOMContentLoaded', function () {
   // Run dynamic renderers
   renderNews();
   renderTeams();
+
+  // Inject structured data for events
+  function injectEventsJsonLd(events) {
+    if (!Array.isArray(events) || events.length === 0) return;
+    const schema = events.map(ev => ({
+      "@type": "Event",
+      "name": ev.title,
+      "startDate": ev.date,
+      "location": {
+        "@type": "Place",
+        "name": ev.location || 'Stade Fulbert',
+        "address": ev.location || 'Stade Fulbert, Chartres'
+      },
+      "image": ev.image ? new URL(ev.image, window.location.href).href : undefined,
+      "description": ev.description || ev.summary,
+      "organizer": {
+        "@type": "SportsOrganization",
+        "name": "FC Fulbert",
+        "url": window.location.origin + window.location.pathname
+      }
+    }));
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": schema
+    }, null, 2);
+    document.head.appendChild(script);
+  }
 });
