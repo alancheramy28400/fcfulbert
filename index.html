@@ -8,8 +8,9 @@
   <meta name="description" content="FC Fulbert — Club de football convivial et ambitieux basé à Chartres. Inscriptions, équipes, actualités et contact.">
   <meta name="keywords" content="FC Fulbert, football, Chartres, club de foot, équipes, entraînement">
   <meta name="robots" content="index, follow">
-  <!-- Update canonical URL to your GitHub Pages location -->
-  <link rel="canonical" href="https://USERNAME.github.io/fcfulbert/">
+  <meta name="author" content="FC Fulbert">
+  <!-- Canonical will be set automatically to the current page if empty; replace with your production URL if available -->
+  <link rel="canonical" href="">
 
 
   <!-- Open Graph -->
@@ -70,33 +71,36 @@
   <a class="sr-only" href="#main" aria-label="Aller au contenu">Aller au contenu</a>
 
   <!-- Header -->
-  <header>
-    <div class="site-brand" role="banner">
+  <header role="banner">
+    <div class="site-brand">
       <img src="logo.png" alt="Logo FC Fulbert" loading="lazy">
       <div>
-        <h1>⚽ FC Fulbert</h1>
-        <p style="margin:0;font-weight:600">La passion du ballon, l’esprit d’équipe</p>
+        <h1>FC Fulbert</h1>
+        <p class="tagline">La passion du ballon, l’esprit d’équipe</p>
       </div>
     </div>
-  </header>
 
-  <!-- Navigation -->
-  <nav aria-label="Navigation principale">
-    <ul>
-      <li><a href="#club">Le Club</a></li>
-      <li><a href="#equipes">Équipes</a></li>
-      <li><a href="#actus">Actualités</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#club">Le Club</a></li>
+        <li><a href="#equipes">Équipes</a></li>
+        <li><a href="#actus">Actualités</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="main">
     <!-- Hero -->
     <section class="hero" aria-hidden="false">
-      <div class="overlay">
-        <h2>Bienvenue au FC Fulbert</h2>
-        <p>Un club convivial et ambitieux, ouvert à tous</p>
-      </div>
+      <figure class="hero-figure">
+        <img src="terrain.jpg" alt="Terrain de football du FC Fulbert" loading="lazy">
+        <figcaption class="overlay">
+          <h2>Bienvenue au FC Fulbert</h2>
+          <p>Un club convivial et ambitieux, ouvert à tous</p>
+        </figcaption>
+      </figure>
     </section>
 
     <!-- Section Club -->
@@ -120,18 +124,29 @@
     <!-- Section Actus -->
     <section class="section" id="actus">
       <h2>Actualités</h2>
-      <ul>
-        <li>⚽ Match Seniors - Victoire 3-1 contre FC Exemple</li>
-        <li>📅 Prochain tournoi U15 - Dimanche 12 octobre</li>
-      </ul>
+      <div class="grid grid-2">
+        <article class="news">
+          <h3>Match Seniors - Victoire 3-1</h3>
+          <time datetime="2025-09-21">21 septembre 2025</time>
+          <p>Bravo à l'équipe senior pour cette belle victoire contre FC Exemple.</p>
+        </article>
+
+        <article class="news">
+          <h3>Tournoi U15 - Dimanche 12 octobre</h3>
+          <time datetime="2025-10-12">12 octobre 2025</time>
+          <p>Inscrivez-vous dès maintenant pour participer au tournoi U15.</p>
+        </article>
+      </div>
     </section>
 
     <!-- Section Contact -->
     <section class="section" id="contact">
       <h2>Contact</h2>
-      <p>📍 Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
-      <p>📧 <a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
-      <p>📞 <a href="tel:+33612345678">06 12 34 56 78</a></p>
+      <address>
+        <p>📍 Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
+        <p>📧 <a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
+        <p>📞 <a href="tel:+33612345678">06 12 34 56 78</a></p>
+      </address>
       <div class="social-links" aria-label="Liens réseaux sociaux">
         <a href="https://www.instagram.com/fcfulbert7?igsh=eG9tZndxN20za2Rv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
         <a href="https://www.tiktok.com/@fcfulbert7?_t=ZN-902pUnzFtnG&amp;_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
