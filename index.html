@@ -43,7 +43,7 @@
     "@type": "SportsTeam",
     "name": "FC Fulbert",
     "url": "https://USERNAME.github.io/fcfulbert/",
-    "logo": "https://USERNAME.github.io/fcfulbert/logo.png",
+  "logo": "https://USERNAME.github.io/fcfulbert/img/logo.svg",
     "description": "Club de football convivial et ambitieux à Chartres. Équipes jeunes, seniors et féminines.",
     "sport": "Football",
     "memberOf": {
@@ -73,29 +73,33 @@
   <!-- Header -->
   <header role="banner">
     <div class="site-brand">
-      <img src="logo.png" alt="Logo FC Fulbert" loading="lazy">
+      <img src="img/logo.svg" alt="Logo FC Fulbert" loading="lazy" width="104" height="104">
       <div>
         <h1>FC Fulbert</h1>
         <p class="tagline">La passion du ballon, l’esprit d’équipe</p>
       </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav" aria-label="Navigation principale">
-      <ul>
-        <li><a href="#club">Le Club</a></li>
-        <li><a href="#equipes">Équipes</a></li>
-        <li><a href="#actus">Actualités</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Ouvrir le menu">☰</button>
+
+      <!-- Navigation -->
+      <nav id="main-navigation" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#club">Le Club</a></li>
+          <li><a href="#equipes">Équipes</a></li>
+          <li><a href="#actus">Actualités</a></li>
+          <li><a href="#inscription">Inscription</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
   </header>
 
   <main id="main">
     <!-- Hero -->
     <section class="hero" aria-hidden="false">
       <figure class="hero-figure">
-        <img src="terrain.jpg" alt="Terrain de football du FC Fulbert" loading="lazy">
+        <img src="img/image.png" alt="Terrain de football du FC Fulbert" loading="lazy">
         <figcaption class="overlay">
           <h2>Bienvenue au FC Fulbert</h2>
           <p>Un club convivial et ambitieux, ouvert à tous</p>
@@ -108,8 +112,17 @@
       <h2>Le Club</h2>
       <p>
         Fondé en 1995, le FC Fulbert rassemble des passionnés de football autour
-        de valeurs fortes : esprit d’équipe, respect et convivialité.
+        de valeurs fortes : esprit d’équipe, respect et convivialité. Nous proposons des
+        entraînements encadrés, des actions de formation pour les jeunes et des événements
+        réguliers pour la vie du club.
       </p>
+
+      <h3>Nos valeurs</h3>
+      <ul>
+        <li>Plaisir de jouer</li>
+        <li>Respect et fair-play</li>
+        <li>Engagement local</li>
+      </ul>
     </section>
 
     <!-- Section Équipes -->
@@ -117,8 +130,34 @@
       <h2>Nos Équipes</h2>
       <p>
         Des plus jeunes aux séniors, en passant par nos équipes féminines et loisirs,
-        chacun trouve sa place au FC Fulbert !
+        chacun trouve sa place au FC Fulbert.
       </p>
+
+      <div class="grid grid-2 teams">
+        <article>
+          <h3>Jeunes</h3>
+          <p>U7 à U18 — Programmes de développement technique et éducatif.</p>
+        </article>
+        <article>
+          <h3>Seniors</h3>
+          <p>Compétitions locales et développement des talents.</p>
+        </article>
+        <article>
+          <h3>Féminines</h3>
+          <p>Section dédiée aux joueuses avec entraînements spécifiques.</p>
+        </article>
+        <article>
+          <h3>Loisirs</h3>
+          <p>Sessions mixtes et événements conviviaux.</p>
+        </article>
+      </div>
+
+      <h4>Horaires (exemple)</h4>
+      <ul>
+        <li>Mardi 19:00 – 21:00 : Seniors</li>
+        <li>Mercredi 17:30 – 19:00 : Jeunes</li>
+        <li>Jeudi 19:00 – 20:30 : Féminines</li>
+      </ul>
     </section>
 
     <!-- Section Actus -->
@@ -143,14 +182,53 @@
     <section class="section" id="contact">
       <h2>Contact</h2>
       <address>
-        <p>📍 Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
-        <p>📧 <a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
-        <p>📞 <a href="tel:+33612345678">06 12 34 56 78</a></p>
+        <p>Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
+        <p><a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
+        <p><a href="tel:+33612345678">06 12 34 56 78</a></p>
       </address>
       <div class="social-links" aria-label="Liens réseaux sociaux">
         <a href="https://www.instagram.com/fcfulbert7?igsh=eG9tZndxN20za2Rv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
         <a href="https://www.tiktok.com/@fcfulbert7?_t=ZN-902pUnzFtnG&amp;_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
       </div>
+    </section>
+
+    <!-- Section Inscription (formulaire simple) -->
+    <section class="section" id="inscription" aria-labelledby="inscription-title">
+      <h2 id="inscription-title">Inscription & Contact</h2>
+      <p>Remplissez le formulaire ci-dessous pour vous inscrire ou contacter le club. Nous vous recontacterons rapidement.</p>
+
+      <form id="signup" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Nom complet <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Tél</label>
+          <input id="phone" name="phone" type="tel">
+        </div>
+        <div class="form-row">
+          <label for="role">Je souhaite m'inscrire en tant que</label>
+          <select id="role" name="role">
+            <option value="senior">Senior</option>
+            <option value="jeune">Jeune</option>
+            <option value="feminine">Féminine</option>
+            <option value="loisir">Loisir</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn">Envoyer l'inscription</button>
+        </div>
+        <div id="form-result" role="status" aria-live="polite"></div>
+      </form>
     </section>
   </main>
 

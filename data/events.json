@@ -1,0 +1,20 @@
+{
+  "events": [
+    {
+      "id": "evt-2025-10-12-u15",
+      "title": "Tournoi U15 - Dimanche 12 octobre",
+      "date": "2025-10-12",
+      "summary": "Tournoi interclubs U15 au Stade Fulbert. Inscription ouverte pour équipes locales.",
+      "cta": "S'inscrire",
+      "cta_link": "#inscription"
+    },
+    {
+      "id": "evt-2025-09-21-seniors-win",
+      "title": "Match Seniors - Victoire 3-1",
+      "date": "2025-09-21",
+      "summary": "Brillante victoire des seniors contre FC Exemple. Résumé et photos disponibles au club-house.",
+      "cta": "Voir le résumé",
+      "cta_link": "#actus"
+    }
+  ]
+}
