@@ -13,6 +13,9 @@
   --radius: 14px;
   --shadow: 0 10px 30px rgba(2,6,23,0.6);
   --glass-border: rgba(255,255,255,0.12);
+  --muted-2: #a6b8d6;
+  --bg-accent: linear-gradient(90deg, rgba(11,61,145,0.95), rgba(0,44,102,0.95));
+  --card-elev: 0 14px 40px rgba(2,6,23,0.6);
   font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   color-scheme: dark;
 }
@@ -30,6 +33,8 @@ body{
   min-height:100%;
   display:flex;
   flex-direction:column;
+  font-size:16px;
+  line-height:1.55;
 }
 
 /* animated subtle gradient overlay */
@@ -67,23 +72,46 @@ header{
 .hero{padding:48px 18px 32px;display:flex;align-items:center;justify-content:center}
 .hero-figure{width:100%;max-width:1200px;margin:0 auto;position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
 .hero-figure img{width:100%;height:520px;object-fit:cover;display:block;filter:contrast(1.02) saturate(1.05)}
-.hero .overlay{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:48px;background:linear-gradient(180deg, rgba(2,6,23,0.2), rgba(2,6,23,0.55));}
-.hero h2{font-size:clamp(2rem,5vw,3.6rem);margin:0 0 10px;line-height:1;color:#fff;text-shadow:0 8px 30px rgba(2,6,23,0.8)}
+.hero .overlay{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;flex-direction:column;justify-content:center;padding:48px;background:linear-gradient(180deg, rgba(2,6,23,0.25), rgba(2,6,23,0.65));backdrop-filter: blur(4px) saturate(110%);}
+.hero h2{font-size:clamp(2rem,5vw,3.6rem);margin:0 0 10px;line-height:1;color:#fff;text-shadow:0 10px 40px rgba(2,6,23,0.85);letter-spacing:0.4px}
 .hero p{font-size:1.05rem;color:var(--muted);max-width:720px}
+
+/* Hero CTA toolbar */
+.hero-ctas{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.btn--primary{background:linear-gradient(90deg,#ffd14d,var(--accent));box-shadow:0 8px 24px rgba(255,204,0,0.12)}
+/* subtle button micro-interactions */
+.btn{transition:transform .15s ease, box-shadow .15s ease, opacity .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Floating registration button (desktop) */
+.floating-cta{position:fixed;right:20px;bottom:24px;z-index:60}
+.floating-cta .btn{padding:14px 18px;border-radius:16px}
+
+/* Form UX improvements */
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(255,255,255,0.5)}
+.contact-form .error{color:#ffdddd;background:rgba(255,0,0,0.06);padding:8px;border-radius:8px;margin-top:6px}
 
 .section{padding:42px 18px;max-width:var(--max-width);margin:32px auto;background:transparent}
 
 .grid{display:grid;gap:20px}
 .grid-2{grid-template-columns:1fr}
 
-.teams article,.news{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 24px rgba(2,6,23,0.5);transition:transform .2s ease, box-shadow .2s ease}
-.teams article:hover,.news:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(2,6,23,0.6)}
+.teams article,.news{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.04);box-shadow:var(--card-elev);transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s}
+.teams article:hover,.news:hover{transform:translateY(-8px);box-shadow:0 28px 64px rgba(2,6,23,0.6)}
+.news{overflow:hidden}
+.news h3{font-size:1.05rem}
+.news p{color:var(--muted-2)}
+
+/* subtle entrance animation for cards */
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.news, .teams article { animation: fadeUp .5s ease both }
 .teams h3{margin:0 0 6px;color:var(--accent)}
 .news h3{margin:0 0 8px;color:#fff}
 .news time{display:block;color:var(--muted);font-size:.9rem;margin-bottom:8px}
 
 /* Form & card glass */
-.contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:18px;border-radius:12px;border:1px solid var(--glass-border);box-shadow:0 12px 36px rgba(2,6,23,0.6);max-width:760px}
+.contact-form{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:20px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:0 18px 46px rgba(2,6,23,0.6);max-width:760px}
 .contact-form .form-row{margin-bottom:14px}
 .contact-form label{display:block;margin-bottom:6px;font-weight:700;color:var(--muted)}
 .contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:#fff}
@@ -94,10 +122,15 @@ header{
 #form-result{margin-top:10px;color:#cfe7d8;font-weight:700}
 
 .footer{background:transparent;color:var(--muted);text-align:center;padding:28px 18px;margin-top:40px;border-top:1px solid rgba(255,255,255,0.03)}
-.social-links a{color:var(--muted);text-decoration:none;margin-right:12px;padding:8px;border-radius:8px}
-.social-links a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+.social-links a{color:var(--muted);text-decoration:none;margin-right:12px;padding:8px;border-radius:8px;transition:transform .12s, background .12s}
+.social-links a:hover{color:#fff;background:rgba(255,255,255,0.04);transform:translateY(-3px)}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* FAQ styling */
+dl{max-width:900px}
+dt{font-weight:800;margin-top:14px;color:#fff}
+dd{margin:6px 0 12px;color:var(--muted-2)}
 
 /* Responsive */
 @media(min-width:820px){
@@ -107,6 +140,14 @@ header{
   .grid-2{grid-template-columns:1fr 1fr}
   .hero-figure img{height:640px}
   header{padding:18px 36px}
+}
+
+@media(min-width:980px){
+  .floating-cta{display:block}
+}
+
+@media(max-width:979px){
+  .floating-cta{display:none}
 }
 
 @media(max-width:420px){

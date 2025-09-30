@@ -83,6 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
         this.setAttribute('aria-label', 'Fermer le menu');
       }
     });
+    // close mobile nav when a link is clicked
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (window.innerWidth < 820) {
+        mainNav.style.display = 'none';
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+    }));
   }
 
   // Simple form handling (simulated submit)
@@ -91,19 +99,26 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      // basic validation
+      // basic validation with inline messages
       const name = form.querySelector('#name');
       const email = form.querySelector('#email');
-      if (!name.value.trim() || !email.value.trim()) {
-        if (result) result.textContent = 'Veuillez renseigner le nom et l\'email.';
-        return;
+      // clear previous errors
+      form.querySelectorAll('.error').forEach(n => n.remove());
+      let hasError = false;
+      if (!name.value.trim()) {
+        const err = document.createElement('div'); err.className = 'error'; err.textContent = 'Veuillez saisir votre nom.'; name.parentNode.appendChild(err); hasError = true;
       }
+      if (!email.value.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
+        const err = document.createElement('div'); err.className = 'error'; err.textContent = 'Veuillez saisir une adresse email valide.'; email.parentNode.appendChild(err); hasError = true;
+      }
+      if (hasError) { if (result) result.textContent = 'Veuillez corriger les erreurs ci-dessus.'; return; }
 
       // simulate send
       if (result) result.textContent = 'Envoi en cours...';
       setTimeout(() => {
         if (result) result.textContent = 'Merci, votre inscription a bien été prise en compte.';
         form.reset();
+        try { if (window.gtag) gtag('event', 'signup_submit', { method: 'site_form' }); } catch(e){}
       }, 800);
     });
   }
@@ -189,6 +204,52 @@ document.addEventListener('DOMContentLoaded', function () {
   // Run dynamic renderers
   renderNews();
   renderTeams();
+
+  // Share button (Web Share API + fallback clipboard)
+  const shareBtn = document.getElementById('share-btn');
+  const shareResult = document.getElementById('share-result');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async function () {
+      const shareData = {
+        title: document.title,
+        text: 'Découvrez le FC Fulbert — club de football à Chartres :',
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          if (shareResult) shareResult.textContent = 'Merci d\'avoir partagé !';
+          try { if (window.gtag) gtag('event', 'share', { method: 'web_share' }); } catch(e){}
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(shareData.url);
+          if (shareResult) shareResult.textContent = 'Lien copié dans le presse-papiers. Partagez-le où vous le souhaitez.';
+          try { if (window.gtag) gtag('event', 'share', { method: 'copy_clipboard' }); } catch(e){}
+        } else {
+          // fallback: select a temporary input
+          const tmp = document.createElement('input');
+          tmp.value = shareData.url;
+          document.body.appendChild(tmp);
+          tmp.select();
+          try { document.execCommand('copy'); if (shareResult) shareResult.textContent = 'Lien copié.'; } catch (e) { if (shareResult) shareResult.textContent = 'Impossible de copier. Veuillez copier manuellement l\'URL.'; }
+          tmp.remove();
+          try { if (window.gtag) gtag('event', 'share', { method: 'copy_execCommand' }); } catch(e){}
+        }
+      } catch (err) {
+        console.warn('Share failed', err);
+        if (shareResult) shareResult.textContent = 'Le partage a été annulé ou a échoué.';
+      }
+      // clear message after a few seconds
+      if (shareResult) setTimeout(() => { shareResult.textContent = ''; }, 6000);
+    });
+  }
+
+  // Track CTA clicks (hero CTAs and floating CTA)
+  document.querySelectorAll('.hero-ctas a, .floating-cta a').forEach(a => {
+    a.addEventListener('click', function () {
+      const label = this.textContent.trim().slice(0,50);
+      try { if (window.gtag) gtag('event', 'cta_click', { label: label, href: this.getAttribute('href') }); } catch(e){}
+    });
+  });
 
   // Inject structured data for events
   function injectEventsJsonLd(events) {

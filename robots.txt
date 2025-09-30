@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (update the domain to your production URL)
-Sitemap: https://USERNAME.github.io/fcfulbert/sitemap.xml
+# Sitemap location - update the domain if you use a custom domain
+Sitemap: https://alancheramy28400.github.io/fcfulbert/sitemap.xml
