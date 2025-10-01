@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - FC Fulbert</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header role="banner">
+    <div class="container">
+    <div class="site-brand">
+      <img src="img/media.jpg" alt="Logo FC Fulbert" loading="lazy" width="104" height="104">
+      <div>
+        <h1>FC Fulbert</h1>
+        <p class="tagline">La passion du ballon, l’esprit d’équipe</p>
+      </div>
+    </div>
+
+      <!-- Mobile nav toggle -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-navigation" aria-label="Ouvrir le menu">☰</button>
+
+      <!-- Navigation -->
+      <nav id="main-navigation" class="main-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le Club</a></li>
+          <li><a href="equipes.html">Équipes</a></li>
+          <li><a href="actus.html">Actualités</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Full-width sticky nav (desktop) -->
+  <nav class="sticky-nav" aria-label="Navigation principale">
+    <div class="container">
+      <div class="nav-inner">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le Club</a></li>
+          <li><a href="equipes.html">Équipes</a></li>
+          <li><a href="actus.html">Actualités</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="container">
+    <section class="section">
+      <h2>Contact</h2>
+      <address>
+        <p>Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
+        <p><a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
+        <p><a href="tel:+33612345678">06 12 34 56 78</a></p>
+      </address>
+      <div class="grid grid-2">
+        <article>
+          <h3>Nous trouver</h3>
+          <p>Le stade se situe à proximité du centre-ville avec parkings publics à moins de 5 minutes à pied. Accès PMR disponible. Horaires de permanence : mardi & jeudi 18:00-20:00.</p>
+        </article>
+        <article>
+          <h3>Réseaux sociaux</h3>
+          <p>Suivez-nous pour les photos et vidéos : Instagram (<a href="#">@fcfulbert7</a>), TikTok (<a href="#">@fcfulbert7</a>).</p>
+        </article>
+      </div>
+
+      <h3>Formulaire de contact</h3>
+      <form class="contact-form" id="contact-form">
+        <div class="form-row"><label for="c-name">Nom</label><input id="c-name" name="name" type="text"></div>
+        <div class="form-row"><label for="c-email">Email</label><input id="c-email" name="email" type="email"></div>
+        <div class="form-row"><label for="c-message">Message</label><textarea id="c-message" name="message" rows="4"></textarea></div>
+        <div class="form-row"><button class="btn" type="submit">Envoyer</button></div>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© <span id="year">2025</span> FC Fulbert</p>
+    <p style="margin-top:8px">
+      <a href="cgu.html">CGU</a> · <a href="privacy.html">Politique de confidentialité</a> · <a href="cookies.html">Cookies</a>
+    </p>
+  </footer>
+</body>
+</html>

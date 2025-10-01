@@ -4,27 +4,27 @@
       "id": "evt-2025-10-12-u15",
       "title": "Tournoi U15 - Dimanche 12 octobre",
       "date": "2025-10-12",
-      "summary": "Tournoi interclubs U15 au Stade Fulbert. Inscription ouverte pour équipes locales.",
-      "description": "Tournoi amical U15 réunissant des clubs régionaux. Arbitrage assuré, petites restauration sur place.",
+      "summary": "Tournoi amical U15 réunissant des clubs régionaux. Arbitrage et petite restauration sur place.",
+      "description": "Tournoi interclubs U15 au Stade Fulbert. Inscription ouverte pour équipes locales.",
       "location": "Stade Fulbert, 12 rue des Sports, Chartres",
       "age_range": "U15",
       "image": "img/image.png",
       "contact_email": "events@fc-fulbert.fr",
-      "cta": "S'inscrire",
-      "cta_link": "#inscription"
+      "cta": "Lire le compte-rendu",
+      "cta_link": "#"
     },
     {
       "id": "evt-2025-09-21-seniors-win",
       "title": "Match Seniors - Victoire 3-1",
       "date": "2025-09-21",
-      "summary": "Brillante victoire des seniors contre FC Exemple. Résumé et photos disponibles au club-house.",
+      "summary": "Résumé du match senior : performances individuelles et interviews.",
       "description": "Résumé du match senior: performance notable de l'attaque, interviews et photos.",
       "location": "Stade Fulbert, Chartres",
       "age_range": "Seniors",
-      "image": "img/image.png",
+      "image": "img/media.jpg",
       "contact_email": "media@fc-fulbert.fr",
-      "cta": "Voir le résumé",
-      "cta_link": "#actus"
+      "cta": "Voir les photos",
+      "cta_link": "#"
     }
   ]
 }

@@ -34,8 +34,9 @@
 
 
   <meta name="theme-color" content="#003580">
-  <!-- Use existing logo as favicon to avoid missing resource; add PNG fallback for browsers that don't support SVG favicon in some contexts -->
-  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <!-- Use existing media image as favicon. Please rename the file in img/ from 'Média.jpg' to 'media.jpg' to avoid accent/encoding issues on GitHub Pages -->
+  <!-- Fallback order: jpeg, png -->
+  <link rel="icon" type="image/jpeg" href="img/media.jpg">
   <link rel="icon" type="image/png" href="img/image.png">
   <!-- Google Analytics 4: replace G-XXXXXXXXXX with your Measurement ID -->
   <!-- If you don't want analytics, remove this block -->
@@ -59,7 +60,7 @@
     "@type": "SportsTeam",
     "name": "FC Fulbert",
     "url": "https://alancheramy28400.github.io/fcfulbert/",
-  "logo": "https://alancheramy28400.github.io/fcfulbert/img/logo.svg",
+  "logo": "https://alancheramy28400.github.io/fcfulbert/img/media.jpg",
     "description": "Club de football convivial et ambitieux à Chartres. Équipes jeunes, seniors et féminines.",
     "sport": "Football",
     "memberOf": {
@@ -121,8 +122,10 @@
 
   <!-- Header -->
   <header role="banner">
+    <div class="container">
     <div class="site-brand">
-      <img src="img/logo.svg" alt="Logo FC Fulbert" loading="lazy" width="104" height="104">
+    <!-- NOTE: rename the file img/Média.jpg -> img/media.jpg on disk to match this reference and avoid URL/encoding issues on GitHub Pages -->
+    <img src="img/media.jpg" alt="Logo FC Fulbert" loading="lazy" width="104" height="104">
       <div>
         <h1>FC Fulbert</h1>
         <p class="tagline">La passion du ballon, l’esprit d’équipe</p>
@@ -135,14 +138,33 @@
       <!-- Navigation -->
       <nav id="main-navigation" class="main-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="#club">Le Club</a></li>
-          <li><a href="#equipes">Équipes</a></li>
-          <li><a href="#actus">Actualités</a></li>
-          <li><a href="#inscription">Inscription</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="club.html">Le Club</a></li>
+          <li><a href="equipes.html">Équipes</a></li>
+          <li><a href="actus.html">Actualités</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
+    </div>
   </header>
+
+  <!-- Full-width sticky nav (desktop) -->
+  <nav class="sticky-nav" aria-label="Navigation principale">
+    <div class="container">
+      <div class="nav-inner">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le Club</a></li>
+          <li><a href="equipes.html">Équipes</a></li>
+          <li><a href="actus.html">Actualités</a></li>
+          <li><a href="inscription.html">Inscription</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <main id="main">
     <!-- Hero -->
@@ -154,152 +176,76 @@
             <p>Club convivial et ambitieux à Chartres — initiation, formation et compétition pour tous les âges. Rejoignez-nous pour progresser,
             participer à des événements locaux et vivre la passion du football en équipe.</p>
             <div class="hero-ctas" role="toolbar" aria-label="Actions rapides">
-              <a href="#inscription" class="btn btn--primary" aria-label="S'inscrire">S'inscrire / Essai gratuit</a>
-              <a href="#equipes" class="btn" aria-label="Voir les équipes">Voir les équipes</a>
-              <a href="mailto:contact@fc-fulbert.fr" class="btn" aria-label="Contacter le club">Contacter</a>
+              <a href="inscription.html" class="btn btn--primary" aria-label="S'inscrire">S'inscrire / Essai gratuit</a>
+              <a href="equipes.html" class="btn" aria-label="Voir les équipes">Voir les équipes</a>
+              <a href="contact.html" class="btn" aria-label="Contacter le club">Contacter</a>
             </div>
         </figcaption>
       </figure>
     </section>
+    <!-- Condensed landing content: overview + previews linking to dedicated pages -->
+    <section class="section" id="overview">
+      <h2>À propos du club</h2>
+      <p>Le FC Fulbert réunit joueurs et familles autour d'une pratique du football respectueuse, compétitive et formatrice. Découvrez notre histoire, nos équipes et nos actualités sur les pages dédiées.</p>
 
-    <!-- Section Club -->
-    <section class="section" id="club">
-        <h2>Le Club</h2>
-        <p>
-          Fondé en 1995, le FC Fulbert est un club de football implanté au cœur de Chartres. Nous offrons un parcours complet :
-          initiation, formation technique et compétitions adaptées à chaque âge et niveau. Notre mission est de permettre à chacun
-          de progresser dans un environnement sécurisé, respectueux et tourné vers l'apprentissage.
-        </p>
-
-        <h3>Pourquoi nous rejoindre ?</h3>
-        <ul>
-          <li>Encadrement qualifié et programmes d'entraînement structurés.</li>
-          <li>Parcours de formation pour jeunes talents et transition vers les équipes seniors.</li>
-          <li>Ambiance familiale, événements réguliers et engagement local.</li>
-        </ul>
-
-        <h3>Nos valeurs</h3>
-        <ul>
-          <li>Plaisir de jouer et dépassement de soi</li>
-          <li>Respect, inclusion et fair-play</li>
-          <li>Engagement dans la vie locale et éducative</li>
-        </ul>
-
-        <p>Problématique que nous résolvons : offrir une structure sereine pour les jeunes joueurs qui cherchent à progresser, tout en permettant aux adultes de pratiquer le football dans un cadre convivial et compétitif.</p>
-    </section>
-
-    <!-- Section Équipes -->
-    <section class="section" id="equipes">
-      <h2>Nos Équipes</h2>
-      <p>
-        Du loisir à la compétition, le FC Fulbert structure son offre par catégories d'âge et par niveaux. La diversité de nos équipes
-        permet à chacun de trouver une place, qu'il s'agisse d'un jeune débutant ou d'un joueur expérimenté.
-      </p>
-
-      <div class="grid grid-2 teams" id="teams-list">
-        <!-- Dynamic content: teams will be inséré par main.js à partir de data/teams.json -->
+      <div class="grid grid-3 cards">
+        <article class="card">
+          <h3>Le Club</h3>
+          <p>Histoire, valeurs et projets associatifs. En savoir plus sur notre club.</p>
+          <p><a href="club.html" class="btn-small">Découvrir</a></p>
+        </article>
+        <article class="card">
+          <h3>Équipes</h3>
+          <p>Catégories, calendriers et encadrement. Trouvez l'équipe qui vous convient.</p>
+          <p><a href="equipes.html" class="btn-small">Voir les équipes</a></p>
+        </article>
+        <article class="card">
+          <h3>Inscriptions</h3>
+          <p>Procédure d'inscription, tarifs et essais gratuits.</p>
+          <p><a href="inscription.html" class="btn-small">S'inscrire</a></p>
+        </article>
       </div>
-
-      <h4>Horaires (exemple)</h4>
-      <ul>
-        <li>Mardi 19:00 – 21:00 : Seniors</li>
-        <li>Mercredi 17:30 – 19:00 : Jeunes</li>
-        <li>Jeudi 19:00 – 20:30 : Féminines</li>
-      </ul>
-
-      <p>Le contenu ici est riche et utilisable pour répondre aux besoins immédiats des visiteurs : horaires, contacts, catégories d'entraînement et résultats récents.</p>
     </section>
 
-    <!-- Section Actus -->
-    <section class="section" id="actus">
-      <h2>Actualités</h2>
-      <div class="grid grid-2" id="news-list">
+    <section class="section" id="actus-preview">
+      <h2>Actualités récentes</h2>
+      <div id="news-list" class="grid grid-2">
         <!-- Dynamic news injected by main.js from data/events.json -->
       </div>
+      <p style="text-align:center;margin-top:1rem"><a href="actus.html" class="btn">Voir toutes les actualités</a></p>
     </section>
 
-    <!-- Section Contact -->
-    <section class="section" id="contact">
-      <h2>Contact</h2>
-      <address>
-        <p>Stade Fulbert, 12 rue des Sports, 28000 Chartres</p>
-        <p><a href="mailto:contact@fc-fulbert.fr">contact@fc-fulbert.fr</a></p>
-        <p><a href="tel:+33612345678">06 12 34 56 78</a></p>
-      </address>
-      <div class="share-cta">
-        <p>Partagez le club avec vos amis :</p>
-        <button id="share-btn" class="btn" aria-label="Partager FC Fulbert">Partager le club</button>
-        <p id="share-result" aria-live="polite" style="margin-top:8px;color:var(--muted)"></p>
+    <section class="section" id="teams-preview">
+      <h2>Nos équipes (aperçu)</h2>
+      <div id="teams-list" class="grid grid-2 teams">
+        <!-- Dynamic teams injected by main.js from data/teams.json -->
       </div>
-      <div class="social-links" aria-label="Liens réseaux sociaux">
-        <a href="https://www.instagram.com/fcfulbert7?igsh=eG9tZndxN20za2Rv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-        <a href="https://www.tiktok.com/@fcfulbert7?_t=ZN-902pUnzFtnG&amp;_r=1" target="_blank" rel="noopener noreferrer" aria-label="TikTok">TikTok</a>
+      <p style="text-align:center;margin-top:1rem"><a href="equipes.html" class="btn">Toutes les équipes</a></p>
+    </section>
+
+    <!-- Photo gallery to make the page image-rich -->
+    <section class="section" id="gallery">
+      <h2>Galerie & Médias</h2>
+      <p>Moments forts, entraînements et ambiances du club — galerie illustrant la vie du FC Fulbert.</p>
+      <div class="grid grid-3 cards" style="align-items:stretch;">
+        <article class="card"><img src="img/image.png" alt="Match" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:12px"><h4>Tournoi U15</h4><p class="muted">Images du tournoi et résultats.</p></article>
+        <article class="card"><img src="img/media.jpg" alt="Équipe" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:12px"><h4>Seniors A</h4><p class="muted">Ambiance après-match et vestiaires.</p></article>
+        <article class="card"><img src="img/logo.svg" alt="Logo" style="width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:12px"><h4>Club</h4><p class="muted">Identité visuelle et événements officiels.</p></article>
       </div>
-    </section>
-    
-    <!-- FAQ for users and SEO (questions/answers) -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">FAQ</h2>
-      <dl>
-        <dt>Comment rejoindre le FC Fulbert ?</dt>
-        <dd>Remplissez le formulaire d'inscription dans la section Inscription ou contactez-nous par email à contact@fc-fulbert.fr.</dd>
-
-        <dt>Quels sont les âges pris en charge ?</dt>
-        <dd>Nous accueillons les joueurs dès l'âge de 5 ans (U7) jusqu'aux seniors ; plusieurs sections sont proposées selon l'âge et le niveau.</dd>
-
-        <dt>Y a-t-il une cotisation annuelle ?</dt>
-        <dd>Oui, une cotisation annuelle est demandée pour couvrir l'encadrement et le matériel. Le montant varie selon la catégorie — contactez-nous pour les tarifs précis.</dd>
-      </dl>
-    </section>
-
-    <!-- Section Inscription (formulaire simple) -->
-    <section class="section" id="inscription" aria-labelledby="inscription-title">
-      <h2 id="inscription-title">Inscription & Contact</h2>
-      <p id="form-desc">Remplissez le formulaire ci-dessous pour vous inscrire ou contacter le club. Nous vous recontacterons rapidement.</p>
-
-      <form id="signup" class="contact-form" novalidate>
-        <div class="form-row">
-          <label for="name">Nom complet <span aria-hidden="true">*</span></label>
-          <input id="name" name="name" type="text" required aria-describedby="form-desc" placeholder="Ex: Jean Dupont">
-        </div>
-        <div class="form-row">
-          <label for="email">Email <span aria-hidden="true">*</span></label>
-          <input id="email" name="email" type="email" required aria-describedby="form-desc" placeholder="exemple@domaine.com">
-        </div>
-        <div class="form-row">
-          <label for="phone">Tél</label>
-          <input id="phone" name="phone" type="tel" placeholder="06 12 34 56 78">
-        </div>
-        <div class="form-row">
-          <label for="role">Je souhaite m'inscrire en tant que</label>
-          <select id="role" name="role">
-            <option value="senior">Senior</option>
-            <option value="jeune">Jeune</option>
-            <option value="feminine">Féminine</option>
-            <option value="loisir">Loisir</option>
-            <option value="autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4"></textarea>
-        </div>
-        <div class="form-row">
-          <button type="submit" class="btn">Envoyer l'inscription</button>
-        </div>
-        <div id="form-result" role="status" aria-live="polite"></div>
-      </form>
     </section>
 
   <!-- Floating CTA for quick signup -->
   <div class="floating-cta" aria-hidden="false">
-    <a href="#inscription" class="btn" aria-label="S'inscrire">S'inscrire</a>
+    <a href="inscription.html" class="btn" aria-label="S'inscrire">S'inscrire</a>
   </div>
   </main>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <p>© <span id="year">2025</span> FC Fulbert - Tous droits réservés</p>
+    <p style="margin-top:8px">
+      <a href="cgu.html">CGU</a> · <a href="privacy.html">Politique de confidentialité</a> · <a href="cookies.html">Cookies</a>
+    </p>
   </footer>
 
   <!-- Lien vers JS extrait -->
